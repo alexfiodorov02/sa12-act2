@@ -1,6 +1,7 @@
 require 'httparty'
 require 'json'
 
+# Insert desired username here
 response = HTTParty.get('https://api.github.com/users/alexfiodorov02/repos')
 repos = JSON.parse(response.body)
 
@@ -21,6 +22,7 @@ if highest_star_repo
   description = highest_star_repo["forks_count"]
   svn_url = highest_star_repo["svn_url"]
 
+  # Output the repo with highest star count
   puts "Repository with the highest star count:"
   puts "Name: #{name}, Description: #{description}, Star Count: #{highest_star_count}, URL: #{svn_url}"
 else
